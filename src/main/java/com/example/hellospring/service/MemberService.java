@@ -5,11 +5,17 @@ import com.example.hellospring.repository.MemberRepository;
 import com.example.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service    // 서비스가 스프링이 올라올 때 스프링이 스프링 컨테이너의 MemberService를 등록해준다.
+//@Service    // 서비스가 스프링이 올라올 때 스프링이 스프링 컨테이너의 MemberService를 등록해준다.
+// - jpa는 join들어올 때 모든 data변경이 transaction 안에서 실행돼야한다.
+@Transactional  // jpa 사용할 때 주의해야 할게 @Transactional 이란게 있어야한다.
+// -jPA를 통한 모든 데이터 변경은 트랜잭션 안에서 실행해야 한다.
+// 스프링은 해당 클래스의 메서드를 실행할 때 트랜잭션을 시작하고, 메서드가 정상 종료되면 트랜잭션을
+// 커밋한다. 만약 런타임 예외가 발생하면 롤백한다.
 public class MemberService {
 
     //private final MemberRepository memberRepository = new MemoryMemberRepository();

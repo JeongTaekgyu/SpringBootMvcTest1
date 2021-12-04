@@ -5,6 +5,7 @@ import com.example.hellospring.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,14 +24,19 @@ public class MemberServiceIntegrationTest {
 
     @Test
     public void 회원가입() throws Exception {
+        System.out.println("한글가자~~~");
         //Given
         Member member = new Member();
-        member.setName("hello");
+        member.setName("spring100");
         //When
         Long saveId = memberService.join(member);
+
         //Then
-        Member findMember = memberRepository.findById(saveId).get();
-        assertEquals(member.getName(), findMember.getName());
+        Member findMember = memberService.findOne(saveId).get();
+        assertThat(member.getName()).isEqualTo(findMember.getName());
+
+//        Member findMember = memberRepository.findById(saveId).get();
+//        assertEquals(member.getName(), findMember.getName());
     }
 
     @Test
