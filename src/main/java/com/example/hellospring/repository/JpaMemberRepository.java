@@ -18,7 +18,7 @@ public class JpaMemberRepository implements MemberRepository{
     @Override
     public Member save(Member member) {
         // jpa가 insert쿼리 만들어서 db에 넣고 id까지 member에다 setId 해준다
-        em.persist(member);
+        em.persist(member); // 멤버를 저장한다.
         return member;
     }
 

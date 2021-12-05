@@ -5,7 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
+// 아래 @Repository 사용하면 동일한 타입(MemberRepository)의 빈을 2개 등록해서
+// 문제가 발생한다.
+//@Repository
 public class MemoryMemberRepository implements MemberRepository{
 
     private static Map<Long, Member> store = new HashMap<>();
