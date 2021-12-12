@@ -26,6 +26,8 @@ class MemoryMemberRepositoryTest {
 
     @Test
     public void save(){
+        System.out.println("~~~ MemoryMemberRepositoryTest save");
+
         Member member = new Member();
         member.setName("spring");
 

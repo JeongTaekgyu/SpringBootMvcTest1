@@ -16,6 +16,7 @@ public class MemoryMemberRepository implements MemberRepository{
     // MemberRepository 에 있는걸 재정의함
     @Override
     public Member save(Member member) {
+        System.out.println("~~~ MemoryMemberRepository save");
         member.setId(++sequence);
         store.put(member.getId(), member);
         return member;

@@ -27,7 +27,7 @@ public class MemberServiceIntegrationTest {
         System.out.println("한글가자~~~");
         //Given
         Member member = new Member();
-        member.setName("spring100");
+        member.setName("spring2");
         //When
         Long saveId = memberService.join(member);
 
