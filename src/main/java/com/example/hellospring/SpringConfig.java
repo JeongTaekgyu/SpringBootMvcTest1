@@ -1,5 +1,6 @@
 package com.example.hellospring;
 
+import com.example.hellospring.aop.TimeTraceAop;
 import com.example.hellospring.repository.JdbcTemplateMemberRepository;
 import com.example.hellospring.repository.JpaMemberRepository;
 import com.example.hellospring.repository.MemberRepository;
@@ -37,6 +38,13 @@ public class SpringConfig {
         // memberService에다 의존관계 셋팅을 해줘야함
         return new MemberService(memberRepository);
     }
+
+    //@Bean
+    //public TimeTraceAop timeTraceAop(){
+    //    return new TimeTraceAop();
+    //}
+    // 위에 Bean등록 한것을 TimeTraceAop 클래스에서  Component스캔으로 대체한다
+
 //    @Bean
 //    public MemberRepository memberRepository() {
 ////      return new MemoryMemberRepository();
